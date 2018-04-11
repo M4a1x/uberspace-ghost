@@ -21,7 +21,8 @@ done
 npm install -g ghost-cli@latest
 ghost install -d ~/ghost --no-stack --url https://$URL --port $PORT --db mysql --dbuser $USER --dbpass $DBPASSWORD --dbname $USER --process local --no-start --no-setup-mysql --no-setup-nginx --no-setup-ssl --no-setup-systemd --no-setup-linux-user --no-prompt
 
-cat <<__EOF__ >> ~/html/.htaccess
+mkdir -p /var/www/virtual/$USER/$URL
+cat <<__EOF__ >> /var/www/virtual/$USER/$URL/.htaccess
 DirectoryIndex disabled
 RewriteEngine On
 RewriteRule ^(.*) http://localhost:$PORT/\$1 [P]
