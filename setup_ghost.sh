@@ -7,6 +7,9 @@ DEFAULTURL=`uberspace web domain list | tail -n1`
 read -p "Please enter your url (default is $DEFAULTURL): " URL
 URL=${URL:-$DEFAULTURL}
 
+# Just try to add it. If it's already there it will gracefully fail
+uberspace web domain add $URL
+
 # Look for a free Port...
 
 RESULT=false
